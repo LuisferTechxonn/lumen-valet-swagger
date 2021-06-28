@@ -1,0 +1,450 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Cars Api Lumen-Valet Swagger Edition",
+        "contact": {
+            "name": "Devel Team",
+            "email": "luisfernando.parra@techxonn.com"
+        },
+        "license": {
+            "name": "MIT"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://lumen-valet-swagger.test/",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/api/cars": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "description": "Api que devuelve todos los coches existentes en la BBDD",
+                "operationId": "da0433eb398f3f77f85cab3cc83fb142",
+                "responses": {
+                    "200": {
+                        "description": "Devuelve un Json, donde data es el nivel principal, que incluye un Array con todos los Cars",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CarResponseList"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "description": "Función POST que crea un Coche en la Colección",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CarInputPut"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Devuelve un Json, donde data es el nivel principal, que incluye el objeto Car Insertado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CarResponseItemFull"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Devuelve un Json, de Error: Elemento no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseNotFound"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cars/{car_id}": {
+            "get": {
+                "tags": [
+                    "Cars",
+                    "Swagger"
+                ],
+                "description": "Api que devuelve El coche existente según parámetro de entrada",
+                "operationId": "9c3c7f896547cbbcd5de3b5cc1092b08",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 23
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Devuelve un Json, donde data es el nivel principal, que incluye el objeto Car",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CarResponseItemFull"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Devuelve un Json, de Error: Elemento no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseNotFound"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Cars"
+                ],
+                "description": "Función que modifica un coche específico. Se deben recibir todos los elementos",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 23
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CarInputPut"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Devuelve un Json, donde data es el nivel principal, que incluye el objeto Car modificado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CarResponseItemFull"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Devuelve un Json, de Error: Elemento no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseNotFound"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cars",
+                    "Swagger"
+                ],
+                "description": "Api que Elimina un coche existente, y devuelve el listado de los existentes",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 23
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Devuelve un Json, donde data es el nivel principal, que incluye un Array con todos los Cars",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CarResponseList"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Devuelve un Json, de Error: Elemento no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseNotFound"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Cars"
+                ],
+                "description": "Función que modifica un coche específico. Se deben recibir todos los elementos",
+                "parameters": [
+                    {
+                        "name": "car_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": 23
+                    }
+                ],
+                "requestBody": {
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CarInputPut"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Devuelve un Json, donde data es el nivel principal, que incluye el objeto Car modificado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CarResponseItemFull"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Devuelve un Json, de Error: Elemento no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseNotFound"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PostResponse": {
+                "title": "PostResponse",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "attributes": {
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "body": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "relationships": {
+                        "type": "array",
+                        "items": {}
+                    }
+                },
+                "type": "object"
+            },
+            "ResponseNotFound": {
+                "title": "ResponseNotFound",
+                "properties": {
+                    "status": {
+                        "description": "Estado devuelto",
+                        "type": "string",
+                        "example": "ERROR"
+                    },
+                    "error": {
+                        "description": "Descripción Error",
+                        "type": "string",
+                        "example": "404 Not Found"
+                    }
+                },
+                "type": "object"
+            },
+            "CarResponseList": {
+                "title": "CarResponseList",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CarResponse"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CarResponseItemFull": {
+                "title": "CarResponseItemFull",
+                "properties": {
+                    "data": {
+                        "description": "Main Level",
+                        "properties": {
+                            "id": {
+                                "description": "ID en la BBDD",
+                                "type": "integer",
+                                "example": "2"
+                            },
+                            "make": {
+                                "description": "Marca del Coche",
+                                "type": "string",
+                                "example": "BMW"
+                            },
+                            "model": {
+                                "description": "Modelo de coche",
+                                "type": "string",
+                                "example": "E91 330d"
+                            },
+                            "year": {
+                                "description": "Año de fabricación",
+                                "type": "integer",
+                                "example": "2005"
+                            },
+                            "links": {
+                                "description": "Links adicionales",
+                                "properties": {
+                                    "status": {
+                                        "description": "Estado del Coche",
+                                        "type": "string",
+                                        "example": "created"
+                                    },
+                                    "url": {
+                                        "description": "Url para acceder al coche",
+                                        "type": "string",
+                                        "example": "/api/cars/2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "CarResponse": {
+                "title": "CarResponse",
+                "properties": {
+                    "id": {
+                        "description": "ID en la BBDD",
+                        "type": "integer",
+                        "example": "2"
+                    },
+                    "make": {
+                        "description": "Marca del Coche",
+                        "type": "string",
+                        "example": "BMW"
+                    },
+                    "model": {
+                        "description": "Modelo de coche",
+                        "type": "string",
+                        "example": "E91 330d"
+                    },
+                    "year": {
+                        "description": "Año de fabricación",
+                        "type": "integer",
+                        "example": "2005"
+                    },
+                    "links": {
+                        "description": "Links adicionales",
+                        "properties": {
+                            "status": {
+                                "description": "Estado del Coche",
+                                "type": "string",
+                                "example": "created"
+                            },
+                            "url": {
+                                "description": "Url para acceder al coche",
+                                "type": "string",
+                                "example": "/api/cars/2"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "CarInputPut": {
+                "title": "CarInputPut",
+                "properties": {
+                    "make": {
+                        "description": "Marca del Coche",
+                        "type": "string",
+                        "example": "BMW"
+                    },
+                    "model": {
+                        "description": "Modelo de coche",
+                        "type": "string",
+                        "example": "E91 330d"
+                    },
+                    "year": {
+                        "description": "Año de fabricación",
+                        "type": "integer",
+                        "example": "2005"
+                    }
+                },
+                "type": "object"
+            },
+            "Cars/CarInputPutTest": {
+                "title": "Cars/CarInputPutTest",
+                "properties": {
+                    "make": {
+                        "description": "Marca del Coche",
+                        "type": "string",
+                        "example": "BMW"
+                    },
+                    "model": {
+                        "description": "Modelo de coche",
+                        "type": "string",
+                        "example": "E91 330d"
+                    },
+                    "year": {
+                        "description": "Año de fabricación",
+                        "type": "integer",
+                        "example": "2005"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
