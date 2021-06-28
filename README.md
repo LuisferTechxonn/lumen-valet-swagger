@@ -97,3 +97,8 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
 ## Imágenes
 
 ![Imagen](/storage/api-docs/imgs/SwaggerExample.jpeg)
+![Imagen](/storage/api-docs/imgs/SwaggerExample2.png)
+![Imagen](/storage/api-docs/imgs/SwaggerExample3.png)
+
+![Imagen](/storage/api-docs/imgs/SwaggerExample4.png)
+
