@@ -7,9 +7,11 @@ En la búsqueda de crear documentación, se han realizado dos mini-proyectos con
 
 En concreto esta versión se ha utilizado SWAGGER. La versión de Scribe está en el mismo repositorio y se denomina **lumen-valet**
 
+----
 
-![Imagen](/storage/api-docs/imgs/SwaggerExample.jpeg)
+![Imagen](/storage/swagger/imgs/swg1.png)
 
+----
 ## Dependencias
 
 Para generar en este caso el fichero Yaml con especificaciones OAS Swagger 3.0 se ha utilizado la librería [Darka Online - Swagger Lume](https://github.com/DarkaOnLine/SwaggerLume) en su última versión 8.0
@@ -96,9 +98,35 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
 
 ## Imágenes
 
-![Imagen](/storage/api-docs/imgs/SwaggerExample.jpeg)
-![Imagen](/storage/api-docs/imgs/SwaggerExample2.png)
-![Imagen](/storage/api-docs/imgs/SwaggerExample3.png)
+----
 
-![Imagen](/storage/api-docs/imgs/SwaggerExample4.png)
+#### Apis ordenadas por Tags [Cars,Swagger]
 
+![Imagen](/storage/swagger/imgs/swg2.png)
+
+----
+
+#### Schemas del sistema
+
+![Imagen](/storage/swagger/imgs/swg3.png)
+
+----
+
+#### Ejemplo de Api. 
+Muestra los parámetros de entrada, respuestas, y se puede probar
+
+![Imagen](/storage/swagger/imgs/swg4.png)
+
+----
+
+#### Respuestas de la Api
+
+![Imagen](/storage/swagger/imgs/swg5.png)
+
+----
+
+#### Respuesta de la Api tras probarla
+
+![Imagen](/storage/swagger/imgs/swg6.png)
+
+----
