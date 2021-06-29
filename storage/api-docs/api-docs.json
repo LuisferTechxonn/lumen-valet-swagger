@@ -73,6 +73,16 @@
                                 }
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Devuelve un objeto cuyas claves son los campos que han generado errores",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/422Error"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -165,6 +175,16 @@
                                 }
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Devuelve un objeto cuyas claves son los campos que han generado errores",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/422Error"
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -254,6 +274,16 @@
                                 }
                             }
                         }
+                    },
+                    "422": {
+                        "description": "Devuelve un objeto cuyas claves son los campos que han generado errores",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/422Error"
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -297,6 +327,19 @@
                         "description": "Descripción Error",
                         "type": "string",
                         "example": "404 Not Found"
+                    }
+                },
+                "type": "object"
+            },
+            "422Error": {
+                "title": "422Error",
+                "description": "Error 422 de entrada de datos. La Clave del Objeto es el campo que ha reportado error",
+                "properties": {
+                    "field_id": {
+                        "description": "Campo con error",
+                        "type": "array",
+                        "format": "string",
+                        "items": {}
                     }
                 },
                 "type": "object"

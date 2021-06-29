@@ -78,6 +78,22 @@ use App\Http\Controllers\ApiReturnedErrors;
  *          )
  *      }
  * )
+ *
+ * @OA\Schema(
+ *      schema = "422Error",
+ *      type = "object",
+ *      title = "422Error",
+ *      description="Error 422 de entrada de datos. La Clave del Objeto es el campo que ha reportado error",
+ *      properties = {
+ *          @OA\Property(property="field_id",type="array",description="Campo con error", format="string",@OA\Items({
+ *              @OA\Schema(
+     *                      type="string", example="The year field is required."
+     *                  )
+ *          }))
+ *      }
+ *
+ * )
+ *
  */
 
 
@@ -179,6 +195,12 @@ class CarsController extends Controller
      *          response="404",
      *          description="Devuelve un Json, de Error: Elemento no encontrado",
      *          @OA\JsonContent(ref="#/components/schemas/ResponseNotFound")
+     *      ),
+     *      @OA\Response(
+     *          response="422",
+     *          description="Devuelve un objeto cuyas claves son los campos que han generado errores",
+     *          @OA\JsonContent(ref="#/components/schemas/422Error")
+     *
      *      )
      * )
      *
@@ -241,6 +263,12 @@ class CarsController extends Controller
      *          response="404",
      *          description="Devuelve un Json, de Error: Elemento no encontrado",
      *          @OA\JsonContent(ref="#/components/schemas/ResponseNotFound")
+     *      ),
+     *      @OA\Response(
+     *          response="422",
+     *          description="Devuelve un objeto cuyas claves son los campos que han generado errores",
+     *          @OA\JsonContent(ref="#/components/schemas/422Error")
+     *
      *      )
      * )
      *
@@ -342,6 +370,12 @@ class CarsController extends Controller
      *          response="404",
      *          description="Devuelve un Json, de Error: Elemento no encontrado",
      *          @OA\JsonContent(ref="#/components/schemas/ResponseNotFound")
+     *      ),
+     *      @OA\Response(
+     *          response="422",
+     *          description="Devuelve un objeto cuyas claves son los campos que han generado errores",
+     *          @OA\JsonContent(ref="#/components/schemas/422Error")
+     *
      *      )
      * )
      *
